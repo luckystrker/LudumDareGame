@@ -341,12 +341,7 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!4 &1204727963 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 3407830961722849609, guid: 0d781f013da7a51458d0ab0672966eba, type: 3}
-  m_PrefabInstance: {fileID: 8581386332546798298}
-  m_PrefabAsset: {fileID: 0}
---- !u!1001 &8581386332546798298
+--- !u!1001 &6137474917461839461
 PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
@@ -357,26 +352,6 @@ PrefabInstance:
     - target: {fileID: 3359225350745614234, guid: 0d781f013da7a51458d0ab0672966eba, type: 3}
       propertyPath: m_Name
       value: Player
-      objectReference: {fileID: 0}
-    - target: {fileID: 4267781329563862697, guid: 0d781f013da7a51458d0ab0672966eba, type: 3}
-      propertyPath: m_Controller
-      value: 
-      objectReference: {fileID: 9100000, guid: 960ee0da940f37c41b36210f1807d3db, type: 2}
-    - target: {fileID: 6715403540129379697, guid: 0d781f013da7a51458d0ab0672966eba, type: 3}
-      propertyPath: m_Size.x
-      value: 0.79268074
-      objectReference: {fileID: 0}
-    - target: {fileID: 6715403540129379697, guid: 0d781f013da7a51458d0ab0672966eba, type: 3}
-      propertyPath: m_Size.y
-      value: 0.6513618
-      objectReference: {fileID: 0}
-    - target: {fileID: 6715403540129379697, guid: 0d781f013da7a51458d0ab0672966eba, type: 3}
-      propertyPath: m_Offset.x
-      value: -0.15766454
-      objectReference: {fileID: 0}
-    - target: {fileID: 6715403540129379697, guid: 0d781f013da7a51458d0ab0672966eba, type: 3}
-      propertyPath: m_Offset.y
-      value: 0.009787738
       objectReference: {fileID: 0}
     - target: {fileID: 7426363852510471921, guid: 0d781f013da7a51458d0ab0672966eba, type: 3}
       propertyPath: m_LocalPosition.x
@@ -418,14 +393,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 7540151951930246053, guid: 0d781f013da7a51458d0ab0672966eba, type: 3}
-      propertyPath: bulletPrefab
-      value: 
-      objectReference: {fileID: 5810699679861871215, guid: e49b8e93bd73a3d42b21848f41b270cb, type: 3}
-    - target: {fileID: 7540151951930246053, guid: 0d781f013da7a51458d0ab0672966eba, type: 3}
-      propertyPath: bulletSpawnPoint
-      value: 
-      objectReference: {fileID: 1204727963}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -437,4 +404,4 @@ SceneRoots:
   m_Roots:
   - {fileID: 519420032}
   - {fileID: 619394802}
-  - {fileID: 8581386332546798298}
+  - {fileID: 6137474917461839461}
