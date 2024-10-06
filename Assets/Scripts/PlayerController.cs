@@ -3,24 +3,48 @@ using UnityEngine;
 public class PlayerController : MonoBehaviour
 {
     public float moveSpeed = 5f;
-    private Rigidbody2D rb;
+    public int health = 3;
+
+    private Animator animator;
     private Vector2 movement;
 
     void Start()
     {
-        rb = GetComponent<Rigidbody2D>();
+        animator = GetComponent<Animator>();
     }
 
     void Update()
     {
-        // Получаем ввод от пользователя
+        if (health <= 0)
+        {
+            animator.SetBool("isDead", true);
+            return;
+        }
+
         movement.x = Input.GetAxis("Horizontal");
         movement.y = Input.GetAxis("Vertical");
+
+        if (movement != Vector2.zero)
+        {
+            animator.SetBool("isWalking", true);
+            transform.position += new Vector3(movement.x, movement.y, 0) * moveSpeed * Time.deltaTime;
+            transform.up = movement;
+            // Поворот персонажа в направлении движения
+            float angle = Mathf.Atan2(movement.y, movement.x) * Mathf.Rad2Deg;
+            transform.rotation = Quaternion.Euler(new Vector3(0, 0, angle));
+        }
+        else
+        {
+            animator.SetBool("isWalking", false);
+        }
     }
 
-    void FixedUpdate()
+    public void TakeDamage(int damage)
     {
-        // Перемещаем персонажа
-        rb.MovePosition(rb.position + movement * moveSpeed * Time.fixedDeltaTime);
+        health -= damage;
+        if (health <= 0)
+        {
+            animator.SetBool("isDead", true);
+        }
     }
 }
