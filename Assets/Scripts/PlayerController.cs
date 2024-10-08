@@ -72,4 +72,21 @@ public class PlayerController : MonoBehaviour
             animator.SetBool("isDead", true);
         }
     }
+
+    void OnTriggerEnter2D(Collider2D other) {
+        if (other.CompareTag("Slow")) {
+            moveSpeed = 2f;
+        }
+        if (other.CompareTag("Lethal")) {
+            health = 0;
+            rb.velocity = Vector2.zero;
+        }
+
+    }
+
+    void OnTriggerExit2D(Collider2D other) {
+        if (other.CompareTag("Slow")) {
+            moveSpeed = 5f;
+        }
+    }
 }
