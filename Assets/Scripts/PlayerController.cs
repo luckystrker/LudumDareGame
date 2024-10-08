@@ -10,9 +10,11 @@ public class PlayerController : MonoBehaviour
     private Animator animator;
     private Vector2 movement;
     private Vector2 lastMovementDirection;
+    private Rigidbody2D rb;
 
     void Start()
     {
+        rb = GetComponent<Rigidbody2D>();
         animator = GetComponent<Animator>();
     }
 
@@ -30,7 +32,6 @@ public class PlayerController : MonoBehaviour
         if (movement != Vector2.zero)
         {
             animator.SetBool("isWalking", true);
-            transform.position += new Vector3(movement.x, movement.y, 0) * moveSpeed * Time.deltaTime;
 
             // Поворот персонажа в направлении движения
             float angle = Mathf.Atan2(movement.y, movement.x) * Mathf.Rad2Deg;
@@ -51,6 +52,11 @@ public class PlayerController : MonoBehaviour
         }
     }
 
+    void FixedUpdate()
+    {
+        rb.MovePosition(rb.position + moveSpeed * Time.fixedDeltaTime * movement);
+        rb.angularVelocity = 0; // Остановить вращение каждый кадр физики
+    }
     void Shoot()
     {
         GameObject bullet = Instantiate(bulletPrefab, bulletSpawnPoint.position, bulletSpawnPoint.rotation);
